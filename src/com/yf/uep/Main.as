@@ -1,7 +1,10 @@
+import com.yf.uep.container.Container;
+import com.yf.uep.sqlite.Sqlite;
+
 import components.Item;
 
-import com.yf.uep.container.Container;
-
+import flash.data.SQLConnection;
+import flash.errors.SQLError;
 import flash.events.*;
 
 import mx.controls.Alert;
@@ -22,7 +25,27 @@ private function addListeners():void
 
 private function addObjects():void
 {
+	sqliteHandler();
 	addItems();
+}
+
+private function sqliteHandler():void
+{
+	//var sqlite:Sqlite = new Sqlite();
+	
+	var conn:SQLConnection = new SQLConnection();
+	conn.addEventListener(SQLEvent.OPEN, dbOpenHandler);
+	conn.addEventListener(SQLErrorEvent.ERROR, dbErrorHandler);
+	conn.openAsync();
+}
+
+private function dbOpenHandler(event:SQLEvent):void
+{
+	trace("created");
+}
+private function dbErrorHandler(event:SQLErrorEvent):void
+{
+	trace(event.error.message + " //// "+event.error.details);
 }
 
 /**
