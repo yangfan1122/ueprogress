@@ -18,7 +18,9 @@
       <airExcludes/>
     </application>
   </applications>
-  <modules/>
+  <modules>
+    <module application="src/UEProgress.mxml" destPath="components/Item.swf" optimize="true" sourcePath="src/components/Item.mxml"/>
+  </modules>
   <buildCSSFiles/>
   <flashCatalyst validateFlashCatalystCompatibility="false"/>
   <buildTargets>
