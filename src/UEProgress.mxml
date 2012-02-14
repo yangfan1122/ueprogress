@@ -260,6 +260,8 @@
 			</s:Line>
 
 		</s:Group>
+		
+		<s:Button id="saveBtn" label="save interface" />
 
 	</s:VGroup>
 
