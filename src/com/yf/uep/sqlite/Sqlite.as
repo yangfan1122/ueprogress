@@ -1,27 +1,34 @@
 package com.yf.uep.sqlite
 {
-	import flash.display.Sprite;
 	import flash.data.SQLConnection;
 	import flash.data.SQLMode;
 	import flash.data.SQLResult;
 	import flash.data.SQLStatement;
+	import flash.display.Sprite;
 	import flash.errors.SQLError;
+	import flash.events.Event;
 	import flash.events.SQLErrorEvent;
 	import flash.events.SQLEvent;
-	import flash.events.Event;
 	import flash.filesystem.File;
 	import flash.net.Responder;
 	
 	import mx.controls.Alert;
-	
+
 	public class Sqlite extends Sprite
 	{
 		private var conn:SQLConnection;
 		private var dbStatement:SQLStatement;
 		private var state:SQLStatement;
-		private var names:Object;
+		private var titles:Object;
+		private var bars:String;
 		
-		public function Sqlite()
+		public function Sqlite(){}
+		
+		/**
+		 * 连接数据库 
+		 * 
+		 */		
+		public function connSQLite():void
 		{
 			var dbFile:File = File.applicationStorageDirectory.resolvePath(File.applicationDirectory.nativePath+"/db/data.db"); 
 			conn = new SQLConnection(); 
@@ -90,19 +97,33 @@ package com.yf.uep.sqlite
 				var numRows:int = result.data.length;
 				for (var i:int = 0; i < numRows; i++)
 				{
-					var row:Object = result.data[i];
-					trace("appname:", row.appname, ", workname:",row.workname);
-					
-					names = {appname:row.appname, workname:row.workname, h0:row.h0, h1:row.h1, h2:row.h2, h3:row.h3, h4:row.h4, h5:row.h5, h6:row.h6, h7:row.h7, h8:row.h8, h9:row.h9, h10:row.h10, v1:row.v1, v2:row.v2, v3:row.v3, v4:row.v4, v5:row.v5, v6:row.v6, v7:row.v7};
-					dispatchEvent(new Event("Names_GETTED"));
-
+					var row:Object = result.data[i];		
+					titles = {appname:row.appname, workname:row.workname, h0:row.h0, h1:row.h1, h2:row.h2, h3:row.h3, h4:row.h4, h5:row.h5, h6:row.h6, h7:row.h7, h8:row.h8, h9:row.h9, h10:row.h10, v1:row.v1, v2:row.v2, v3:row.v3, v4:row.v4, v5:row.v5, v6:row.v6, v7:row.v7};
+					bars = row.bars;
 				}
+
+				this.dispatchEvent(new Event("Names_GETTED"));
 			}
 		}
 		
-		public function get Names():Object
+		/**
+		 * 返回标题 
+		 * @return 
+		 * 
+		 */		
+		public function get Titles():Object
 		{
-			return names;
+			return titles;
+		}
+		
+		/**
+		 * 返回bars 
+		 * @return 
+		 * 
+		 */		
+		public function get Bars():String
+		{
+			return bars;
 		}
 		
 		
@@ -121,22 +142,20 @@ package com.yf.uep.sqlite
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
+
+
 		/**
-		 * 保存 
+		 * 保存
+		 * @param _obj:标题s
+		 * @param _bars:bars
 		 * 
 		 */		
-		public function saveSQLite(_obj:Object):void
+		public function saveSQLite(_obj:Object, _bars:String):void
 		{
-			var sql:String = "UPDATE uep SET appname=:appname,workname=:workname,h0=:h0,h1=:h1,h2=:h2,h3=:h3,h4=:h4,h5=:h5,h6=:h6,h7=:h7,h8=:h8,h9=:h9,h10=:h10,v1=:v1,v2=:v2,v3=:v3,v4=:v4,v5=:v5,v6=:v6,v7=:v7";
+			var sql:String = "UPDATE uep SET bars=:bars,appname=:appname,workname=:workname,h0=:h0,h1=:h1,h2=:h2,h3=:h3,h4=:h4,h5=:h5,h6=:h6,h7=:h7,h8=:h8,h9=:h9,h10=:h10,v1=:v1,v2=:v2,v3=:v3,v4=:v4,v5=:v5,v6=:v6,v7=:v7";
 
 			state = new SQLStatement();
+			state.parameters[':bars'] = _bars;
 			state.parameters[':appname'] = _obj.appname.text;
 			state.parameters[':workname'] = _obj.workname.text;
 			state.parameters[':h0'] = _obj.h0.text;
