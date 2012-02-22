@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="300" height="90">
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	
+	<s:Group id="itemGroup" width="100%" height="100%" left="10">
+		
+		<s:Group id="bar1" width="100" height="12" x="200" y="15">
+			<s:Rect y="0" width="100%" height="10">
+				<s:fill>
+					<s:SolidColor color="0x59a3eb"/>
+				</s:fill>
+			</s:Rect>
+		</s:Group>
+		
+		<s:Label text="实际" x="310" y="15"/>
+		
+		<s:Group id="bar2" width="100" height="12" x="0" y="15">
+			<s:Line x="1" y="0" width="100%">
+				<s:stroke>
+					<s:SolidColorStroke color="0x59a3eb" weight="2"/>
+				</s:stroke>
+			</s:Line>
+			
+			<s:Line x="1" y="10" width="100%">
+				<s:stroke>
+					<s:SolidColorStroke color="0x59a3eb" weight="2"/>
+				</s:stroke>
+			</s:Line>
+			
+			<s:Rect y="0" width="100%" height="10">
+				<s:fill>
+					<s:SolidColor color="0xffffff"/>
+				</s:fill>
+			</s:Rect>
+		</s:Group>
+			
+		<s:Label text="计划" x="110" y="15" />
+		
+	</s:Group>
+	
+</s:Group>
