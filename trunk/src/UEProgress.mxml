@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" alpha="1"
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
 					   xmlns:s="library://ns.adobe.com/flex/spark"
 					   xmlns:mx="library://ns.adobe.com/flex/mx"
-					   width="950" height="700" creationComplete="main()" showStatusBar="false">
+					   width="950" height="600" alpha="1" creationComplete="main()"
+					   showStatusBar="false">
 	<fx:Declarations>
 		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
 	</fx:Declarations>
@@ -17,7 +18,7 @@
 		}
 	</fx:Style>
 	
-	<s:Group id="container" x="0" y="0" width="100%" height="100%" />
+	<s:Group id="container" x="0" y="0" width="100%" height="100%"/>
 	
 	<s:VGroup width="100%" height="100%">
 		
@@ -30,8 +31,9 @@
 			</s:Rect>
 
 			<s:TextInput id="appTitle" left="275" top="13" width="400" borderVisible="false"
-						 color="0x59a3eb" contentBackgroundAlpha="0" fontSize="20" fontWeight="bold"
-						 text="MYYULE项目——UE工作进程一览表" textAlign="center"/>
+						 color="0x59a3eb" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="20" fontWeight="bold" text="MYYULE项目——UE工作进程一览表"
+						 textAlign="center"/>
 		</s:Group>
 		
 		<!-- table -->
@@ -39,164 +41,158 @@
 			
 			<!-- title -->
 			<s:TextInput id="workName" x="13" y="30" width="100" borderVisible="false"
-						 color="0x8299AB" contentBackgroundAlpha="0" fontSize="16" fontWeight="bold"
-						 text="作业名称" textAlign="center"/>
+						 color="0x8299AB" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="16" fontWeight="bold" text="作业名称" textAlign="center"/>
 			
-			<s:TextInput id="person" x="105" y="30" width="75" borderVisible="false"
-						 color="0x8299AB" contentBackgroundAlpha="0" fontSize="16" fontWeight="bold"
-						 text="人数" textAlign="center"/>
+			<s:TextInput id="person" x="105" y="30" width="75" borderVisible="false" color="0x8299AB"
+						 contentBackgroundAlpha="0" focusEnabled="false" fontSize="16"
+						 fontWeight="bold" text="人数" textAlign="center"/>
 			
 			<s:TextInput id="hTitle1" x="180" y="30" width="75" borderVisible="false"
-						 color="0x8299AB" contentBackgroundAlpha="0" fontSize="16" fontWeight="bold"
-						 text="1天" textAlign="center"/>
+						 color="0x8299AB" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="16" fontWeight="bold" text="1天" textAlign="center"/>
 			
 			<s:TextInput id="hTitle2" x="255" y="30" width="75" borderVisible="false"
-						 color="0x8299AB" contentBackgroundAlpha="0" fontSize="16" fontWeight="bold"
-						 text="2天" textAlign="center"/>
+						 color="0x8299AB" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="16" fontWeight="bold" text="2天" textAlign="center"/>
 			
 			<s:TextInput id="hTitle3" x="330" y="30" width="75" borderVisible="false"
-						 color="0x8299AB" contentBackgroundAlpha="0" fontSize="16" fontWeight="bold"
-						 text="3天" textAlign="center"/>
+						 color="0x8299AB" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="16" fontWeight="bold" text="3天" textAlign="center"/>
 			
 			<s:TextInput id="hTitle4" x="405" y="30" width="75" borderVisible="false"
-						 color="0x8299AB" contentBackgroundAlpha="0" fontSize="16" fontWeight="bold"
-						 text="4天" textAlign="center"/>
+						 color="0x8299AB" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="16" fontWeight="bold" text="4天" textAlign="center"/>
 			
 			<s:TextInput id="hTitle5" x="480" y="30" width="75" borderVisible="false"
-						 color="0x8299AB" contentBackgroundAlpha="0" fontSize="16" fontWeight="bold"
-						 text="5天" textAlign="center"/>
+						 color="0x8299AB" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="16" fontWeight="bold" text="5天" textAlign="center"/>
 			
 			<s:TextInput id="hTitle6" x="555" y="30" width="75" borderVisible="false"
-						 color="0x8299AB" contentBackgroundAlpha="0" fontSize="16" fontWeight="bold"
-						 text="6天" textAlign="center"/>
+						 color="0x8299AB" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="16" fontWeight="bold" text="6天" textAlign="center"/>
 			
 			<s:TextInput id="hTitle7" x="630" y="30" width="75" borderVisible="false"
-						 color="0x8299AB" contentBackgroundAlpha="0" fontSize="16" fontWeight="bold"
-						 text="7天" textAlign="center"/>
+						 color="0x8299AB" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="16" fontWeight="bold" text="7天" textAlign="center"/>
 			
 			<s:TextInput id="hTitle8" x="705" y="30" width="75" borderVisible="false"
-						 color="0x8299AB" contentBackgroundAlpha="0" fontSize="16" fontWeight="bold"
-						 text="8天" textAlign="center"/>
+						 color="0x8299AB" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="16" fontWeight="bold" text="8天" textAlign="center"/>
 			
 			<s:TextInput id="hTitle9" x="780" y="30" width="75" borderVisible="false"
-						 color="0x8299AB" contentBackgroundAlpha="0" fontSize="16" fontWeight="bold"
-						 text="9天" textAlign="center"/>
+						 color="0x8299AB" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="16" fontWeight="bold" text="9天" textAlign="center"/>
 			
 			<s:TextInput id="hTitle10" x="855" y="30" width="75" borderVisible="false"
-						 color="0x8299AB" contentBackgroundAlpha="0" fontSize="16" fontWeight="bold"
-						 text="10天" textAlign="center"/>
+						 color="0x8299AB" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="16" fontWeight="bold" text="10天" textAlign="center"/>
 			
 			
 			<s:TextInput id="vTitle1" x="13" y="90" width="100" borderVisible="false"
-						 color="0x59a3eb" contentBackgroundAlpha="0" fontSize="14" fontWeight="bold"
-						 text="策划文案" textAlign="center"/>
+						 color="0x59a3eb" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="14" fontWeight="bold" text="策划文案" textAlign="center"/>
 			
 			<s:TextInput id="vTitle2" x="13" y="150" width="100" borderVisible="false"
-						 color="0x59a3eb" contentBackgroundAlpha="0" fontSize="14" fontWeight="bold"
-						 text="需求文档" textAlign="center"/>
+						 color="0x59a3eb" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="14" fontWeight="bold" text="需求文档" textAlign="center"/>
 			
 			<s:TextInput id="vTitle3" x="13" y="210" width="100" borderVisible="false"
-						 color="0x59a3eb" contentBackgroundAlpha="0" fontSize="14" fontWeight="bold"
-						 text="结构目录" textAlign="center"/>
+						 color="0x59a3eb" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="14" fontWeight="bold" text="结构目录" textAlign="center"/>
 			
 			<s:TextInput id="vTitle4" x="13" y="270" width="100" borderVisible="false"
-						 color="0x59a3eb" contentBackgroundAlpha="0" fontSize="14" fontWeight="bold"
-						 text="模块流程" textAlign="center"/>
+						 color="0x59a3eb" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="14" fontWeight="bold" text="模块流程" textAlign="center"/>
 			
 			<s:TextInput id="vTitle5" x="13" y="330" width="100" borderVisible="false"
-						 color="0x59a3eb" contentBackgroundAlpha="0" fontSize="14" fontWeight="bold"
-						 text="原型设计" textAlign="center"/>
+						 color="0x59a3eb" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="14" fontWeight="bold" text="原型设计" textAlign="center"/>
 			
 			<s:TextInput id="vTitle6" x="13" y="390" width="100" borderVisible="false"
-						 color="0x59a3eb" contentBackgroundAlpha="0" fontSize="14" fontWeight="bold"
-						 text="UI界面设计" textAlign="center"/>
+						 color="0x59a3eb" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="14" fontWeight="bold" text="UI界面设计" textAlign="center"/>
 			
 			<s:TextInput id="vTitle7" x="13" y="450" width="100" borderVisible="false"
-						 color="0x59a3eb" contentBackgroundAlpha="0" fontSize="14" fontWeight="bold"
-						 text="HTML" textAlign="center"/>
+						 color="0x59a3eb" contentBackgroundAlpha="0" focusEnabled="false"
+						 fontSize="14" fontWeight="bold" text="HTML" textAlign="center"/>
 			
 			
 			
 			<!-- | -->
-			<s:Line xFrom="940" xTo="940" yFrom="10" yTo="610">
+			<s:Line xFrom="940" xTo="940" yFrom="10" yTo="490">
 				<s:stroke>
 					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
 				</s:stroke>
 			</s:Line>
 			
-			<s:Line xFrom="940" xTo="940" yFrom="10" yTo="610">
+			<s:Line xFrom="865" xTo="865" yFrom="10" yTo="490">
 				<s:stroke>
 					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
 				</s:stroke>
 			</s:Line>
 			
-			<s:Line xFrom="865" xTo="865" yFrom="10" yTo="610">
+			<s:Line xFrom="790" xTo="790" yFrom="10" yTo="490">
 				<s:stroke>
 					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
 				</s:stroke>
 			</s:Line>
 			
-			<s:Line xFrom="790" xTo="790" yFrom="10" yTo="610">
+			<s:Line xFrom="715" xTo="715" yFrom="10" yTo="490">
 				<s:stroke>
 					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
 				</s:stroke>
 			</s:Line>
 			
-			<s:Line xFrom="715" xTo="715" yFrom="10" yTo="610">
+			<s:Line xFrom="640" xTo="640" yFrom="10" yTo="490">
 				<s:stroke>
 					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
 				</s:stroke>
 			</s:Line>
 			
-			<s:Line xFrom="640" xTo="640" yFrom="10" yTo="610">
+			<s:Line xFrom="565" xTo="565" yFrom="10" yTo="490">
 				<s:stroke>
 					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
 				</s:stroke>
 			</s:Line>
 			
-			<s:Line xFrom="565" xTo="565" yFrom="10" yTo="610">
+			<s:Line xFrom="490" xTo="490" yFrom="10" yTo="490">
 				<s:stroke>
 					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
 				</s:stroke>
 			</s:Line>
 			
-			<s:Line xFrom="490" xTo="490" yFrom="10" yTo="610">
+			<s:Line xFrom="415" xTo="415" yFrom="10" yTo="490">
 				<s:stroke>
 					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
 				</s:stroke>
 			</s:Line>
 			
-			<s:Line xFrom="415" xTo="415" yFrom="10" yTo="610">
+			<s:Line xFrom="340" xTo="340" yFrom="10" yTo="490">
 				<s:stroke>
 					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
 				</s:stroke>
 			</s:Line>
 			
-			<s:Line xFrom="340" xTo="340" yFrom="10" yTo="610">
+			<s:Line xFrom="265" xTo="265" yFrom="10" yTo="490">
 				<s:stroke>
 					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
 				</s:stroke>
 			</s:Line>
 			
-			<s:Line xFrom="265" xTo="265" yFrom="10" yTo="610">
+			<s:Line xFrom="190" xTo="190" yFrom="10" yTo="490">
 				<s:stroke>
 					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
 				</s:stroke>
 			</s:Line>
 			
-			<s:Line xFrom="190" xTo="190" yFrom="10" yTo="610">
+			<s:Line xFrom="115" xTo="115" yFrom="10" yTo="490">
 				<s:stroke>
 					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
 				</s:stroke>
 			</s:Line>
 			
-			<s:Line xFrom="115" xTo="115" yFrom="10" yTo="610">
-				<s:stroke>
-					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
-				</s:stroke>
-			</s:Line>
-			
-			<s:Line xFrom="10" xTo="10" yFrom="10" yTo="610">
+			<s:Line xFrom="10" xTo="10" yFrom="10" yTo="490">
 				<s:stroke>
 					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
 				</s:stroke>
@@ -250,27 +246,20 @@
 					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
 				</s:stroke>
 			</s:Line>
-			
+
 			<s:Line xFrom="10" xTo="940" yFrom="490" yTo="490">
 				<s:stroke>
 					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
 				</s:stroke>
 			</s:Line>
-			
-			<s:Line xFrom="10" xTo="940" yFrom="550" yTo="550">
-				<s:stroke>
-					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
-				</s:stroke>
-			</s:Line>
-			
-			<s:Line xFrom="10" xTo="940" yFrom="610" yTo="610">
-				<s:stroke>
-					<s:SolidColorStroke caps="square" color="0xB5C6D5" weight="1"/>
-				</s:stroke>
-			</s:Line>
-
 		</s:Group>
 
+		<s:Group id="legendGroup">
+			
+		</s:Group>
+		
+		<s:Label text="123" />
+		
 	</s:VGroup>
 
 	

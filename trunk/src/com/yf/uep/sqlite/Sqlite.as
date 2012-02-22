@@ -21,6 +21,7 @@ package com.yf.uep.sqlite
 		private var state:SQLStatement;
 		private var titles:Object;
 		private var bars:String;
+		private var persons:String;
 		
 		public function Sqlite(){}
 		
@@ -100,6 +101,7 @@ package com.yf.uep.sqlite
 					var row:Object = result.data[i];		
 					titles = {appname:row.appname, workname:row.workname, h0:row.h0, h1:row.h1, h2:row.h2, h3:row.h3, h4:row.h4, h5:row.h5, h6:row.h6, h7:row.h7, h8:row.h8, h9:row.h9, h10:row.h10, v1:row.v1, v2:row.v2, v3:row.v3, v4:row.v4, v5:row.v5, v6:row.v6, v7:row.v7};
 					bars = row.bars;
+					persons = row.person;
 				}
 
 				this.dispatchEvent(new Event("Names_GETTED"));
@@ -126,8 +128,12 @@ package com.yf.uep.sqlite
 			return bars;
 		}
 		
-		
-		
+
+		public function get Persons():String
+		{
+			return persons;
+		}
+
 		
 		/**
 		 * sql执行错误 
@@ -150,12 +156,13 @@ package com.yf.uep.sqlite
 		 * @param _bars:bars
 		 * 
 		 */		
-		public function saveSQLite(_obj:Object, _bars:String):void
+		public function saveSQLite(_obj:Object, _bars:String, _persons:String):void
 		{
-			var sql:String = "UPDATE uep SET bars=:bars,appname=:appname,workname=:workname,h0=:h0,h1=:h1,h2=:h2,h3=:h3,h4=:h4,h5=:h5,h6=:h6,h7=:h7,h8=:h8,h9=:h9,h10=:h10,v1=:v1,v2=:v2,v3=:v3,v4=:v4,v5=:v5,v6=:v6,v7=:v7";
+			var sql:String = "UPDATE uep SET bars=:bars,person=:person,appname=:appname,workname=:workname,h0=:h0,h1=:h1,h2=:h2,h3=:h3,h4=:h4,h5=:h5,h6=:h6,h7=:h7,h8=:h8,h9=:h9,h10=:h10,v1=:v1,v2=:v2,v3=:v3,v4=:v4,v5=:v5,v6=:v6,v7=:v7";
 
 			state = new SQLStatement();
 			state.parameters[':bars'] = _bars;
+			state.parameters[':person'] = _persons;
 			state.parameters[':appname'] = _obj.appname.text;
 			state.parameters[':workname'] = _obj.workname.text;
 			state.parameters[':h0'] = _obj.h0.text;

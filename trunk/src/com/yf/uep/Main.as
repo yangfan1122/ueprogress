@@ -1,22 +1,23 @@
+import com.adobe.images.JPGEncoder;
 import com.yf.uep.container.Container;
 import com.yf.uep.sqlite.Sqlite;
 import com.yf.uep.statics.Statics;
 
-import com.adobe.images.JPGEncoder;
-
 import components.Item;
+import components.Legend;
+import components.Person;
 
 import flash.data.SQLConnection;
-import flash.errors.SQLError;
-import flash.events.*;
 import flash.desktop.NativeApplication;
 import flash.desktop.SystemTrayIcon;
+import flash.display.Bitmap;
+import flash.display.BitmapData;
+import flash.display.IBitmapDrawable;
 import flash.display.NativeMenu;
 import flash.display.NativeMenuItem;
 import flash.display.NativeWindowDisplayState;
-import flash.display.IBitmapDrawable;
-import flash.display.Bitmap;
-import flash.display.BitmapData;
+import flash.errors.SQLError;
+import flash.events.*;
 import flash.geom.Matrix;
 import flash.net.FileReference;
 import flash.utils.ByteArray;
@@ -27,6 +28,7 @@ import mx.core.IVisualElement;
 private var objs:Object;//标题名称对象
 private var sqlite:Sqlite;
 private var barsArr:Array = new Array();//存储舞台Item(bar)实例
+private var personArr:Array = new Array();//存储舞台Person实例
 private var file:FileReference = new FileReference();//截图保存
 
 [Embed(source='assets/icon_16x16.png')]
@@ -63,7 +65,12 @@ private function addListeners():void
 
 private function addObjects():void
 {
+	Container.cleanContainer(container);
 	addItems();
+	addPerson();
+	
+	legendGroup.addElement(new Legend());
+	
 	sqliteHandler();
 	addSysTrayIcon();
 }
@@ -95,6 +102,15 @@ private function setDisplayObjectHandler(evnet:Event):void
 	{
 		barsArr[j].setBarsDisplay(Statics.bars.slice(j, j+1));
 	}
+
+	//person
+	Statics.persons = sqlite.Persons;
+	var tmepArr:Array = Statics.persons.split(",");
+	var len1:int = personArr.length;
+	for(var k:int=0; k<len1; k++)
+	{
+		personArr[k].strength.text = tmepArr[k];
+	}
 }
 
 
@@ -121,7 +137,7 @@ private function panelHandler(event:MouseEvent):void
 private function addItems():void
 {
 	//10*7
-	Container.cleanContainer(container);
+	
 	var len:int = 70;
 	for(var i:int = 0; i<len; i++)
 	{
@@ -133,10 +149,28 @@ private function addItems():void
 	}
 }
 
+/**
+ *	人数 
+ * 
+ */
+private function addPerson():void
+{
+	var len:uint = 7;
+	for(var i:int=0; i<len; i++)
+	{
+		var person:Person = new Person();
+		person.x = 118;
+		person.y = 127 + person.height*i;
+		personArr.push(person);
+		container.addElement(person);
+	}
+}
+
+
 
 /**
- * 保存titles 
- * @param event
+ * 保存
+ * @param
  * 
  */
 private function saveBtnHandler():void
@@ -150,7 +184,24 @@ private function saveBtnHandler():void
 	}
 	Statics.bars = temp;
 	
-	sqlite.saveSQLite(objs, Statics.bars);
+	//persons
+	var temp1:String = "";
+	var len1:int = personArr.length;
+	for(var j:int=0; j<len1; j++)
+	{
+		if(j == (len1-1))
+		{
+			temp1 = temp1 + personArr[j].strength.text;
+		}
+		else
+		{
+			temp1 = temp1 + personArr[j].strength.text + ",";
+		}
+	}
+	Statics.persons = temp1;
+	
+	//保存
+	sqlite.saveSQLite(objs, Statics.bars, Statics.persons);
 }
 
 /**

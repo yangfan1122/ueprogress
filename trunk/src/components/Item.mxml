@@ -56,11 +56,11 @@
 						TweenLite.to(bar2, 0.5, {width:0, startAt:{width:75}, onComplete:onFinishTween});
 						break;
 					case 1:
-						TweenLite.to(bar1, 0.5, {width:75, startAt:{width:0}, onComplete:onFinishTween});
+						TweenLite.to(bar2, 0.5, {width:75, startAt:{width:0}, onComplete:onFinishTween});
 						break;
 					case 2:
-						TweenLite.to(bar1, 0.5, {width:0, startAt:{width:75}, onComplete:onFinishTween});
-						TweenLite.to(bar2, 0.5, {width:75, startAt:{width:0}, onComplete:onFinishTween});
+						TweenLite.to(bar2, 0.5, {width:0, startAt:{width:75}, onComplete:onFinishTween});
+						TweenLite.to(bar1, 0.5, {width:75, startAt:{width:0}, onComplete:onFinishTween});
 						break;
 					case 3:
 						TweenLite.to(bar1, 0.5, {width:75, startAt:{width:0}, onComplete:onFinishTween});
